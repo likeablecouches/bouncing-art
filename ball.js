@@ -26,10 +26,7 @@ class Ball {
 		return null;
 	}
 
-	move() {
-		this.x = this.x + this.speedX;
-		this.y = this.y + this.speedY;
-
+	resolveCollision() {
 		if (!this.detectCollisionWithEdge()) {
 			return;
 		}
@@ -62,7 +59,15 @@ class Ball {
 
 	}
 
+	move() {
+		this.x = this.x + this.speedX;
+		this.y = this.y + this.speedY;
+
+		this.resolveCollision();
+	}
+
 	show() {
+		ellipseMode(CENTER);
 		noStroke();
 		fill(0);
 		ellipse(this.x, this.y, 8, 8);
