@@ -6,15 +6,16 @@ let minSpeed = 1;
 let bgColor = 255;
 let paused = false;
 let drawMode = "rectangle";
+let centered = false;
 
 function setup() {
-	// createCanvas(400, 400);
 	createCanvas(700, 600);
 
 	background(bgColor);
+
 	p1 = new Ball(random(width), random(height), random(minSpeed, maxSpeed), random(minSpeed, maxSpeed));
-	// p2 = new Ball(random(width), random(height), random(minSpeed, maxSpeed), random(minSpeed, maxSpeed));
-	p2 = new Ball(random(width), random(height), 0.001, 0.001);
+	p2 = new Ball(random(width), random(height), random(minSpeed, maxSpeed), random(minSpeed, maxSpeed));
+
 	colorSlider = new ColorSlider(random(255), random(255), random(255));
 }
 
@@ -34,6 +35,18 @@ function keyTyped() {
 		case '3':
 			background(bgColor);
 			drawMode = 'line';
+			break;
+		case '4':
+			centered = !centered;
+
+			if (centered) {
+				background(bgColor);
+				p2 = new Ball(width / 2, height / 2, 0, 0);
+			} else {
+				background(bgColor);
+				p2 = new Ball(random(width), random(height), random(minSpeed, maxSpeed), random(minSpeed, maxSpeed));
+			}
+
 			break;
 	}
 }

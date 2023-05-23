@@ -33,28 +33,32 @@ class Ball {
 
 		let residual = 0;
 
+		let randomSpeed = random(minSpeed, maxSpeed);
+
 		if (this.detectCollisionWithEdge() == 'left') {
 			residual = this.x
 			this.x = this.x - residual;
-			this.speedX = -this.speedX / Math.abs(this.speedX) * random(minSpeed, maxSpeed);
+
+
+			this.speedX = -this.speedX / Math.abs(this.speedX) * randomSpeed;
 		}
 
 		if (this.detectCollisionWithEdge() == 'right') {
 			residual = this.x - width
 			this.x = this.x - residual;
-			this.speedX = -this.speedX / Math.abs(this.speedX) * random(minSpeed, maxSpeed);
+			this.speedX = -this.speedX / Math.abs(this.speedX) * randomSpeed;
 		}
 
 		if (this.detectCollisionWithEdge() == 'top') {
 			residual = this.y
 			this.y = this.y - residual;
-			this.speedY = -this.speedY / Math.abs(this.speedY) * random(minSpeed, maxSpeed);
+			this.speedY = -this.speedY / Math.abs(this.speedY) * randomSpeed;
 		}
 
 		if (this.detectCollisionWithEdge() == 'bottom') {
 			residual = this.y - height
 			this.y = this.y - residual;
-			this.speedY = -this.speedY / Math.abs(this.speedY) * random(minSpeed, maxSpeed);
+			this.speedY = -this.speedY / Math.abs(this.speedY) * randomSpeed;
 		}
 
 	}
