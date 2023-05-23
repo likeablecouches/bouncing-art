@@ -1,18 +1,14 @@
 let p1;
 let p2;
 let colorSlider;
-let maxSpeed;
-let minSpeed;
-let bgColor;
+let maxSpeed = 5;
+let minSpeed = 1;
+let bgColor = 255;
+let paused = false;
 
 function setup() {
 	// createCanvas(400, 400);
 	createCanvas(700, 600);
-
-	bgColor = 255 
-
-	maxSpeed = 5 
-	minSpeed = 1
 
 	background(bgColor);
 	p1 = new Ball(random(width), random(height), random(minSpeed, maxSpeed), random(minSpeed, maxSpeed));
@@ -21,10 +17,21 @@ function setup() {
 	colorSlider = new ColorSlider(random(255), random(255), random(255));
 }
 
+function keyTyped() {
+	if (key === ' ') {
+		paused = !paused;
+	}
+}
+
 function mouseClicked() {
 	background(bgColor);
 }
+
 function draw() {
+	if (paused) {
+		return;
+	}
+	
 	p1.move()
 	// p1.show()
 
@@ -49,3 +56,4 @@ function draw() {
 	fill(bgColor);
 	rect(p1.x, p1.y, p2.x, p2.y);
 }
+
