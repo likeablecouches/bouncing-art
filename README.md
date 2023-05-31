@@ -6,6 +6,7 @@ Based off of https://happycoding.io/tutorials/p5js/animation/bouncing-line
 
 Play with it here: https://openprocessing.org/sketch/1935977
 
-# Example
+# Examples
 
 ![Alt text](example.png?raw=true "Title")
+![Alt text](example-ellipses.png?raw=true "Title")
